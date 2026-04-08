@@ -123,3 +123,6 @@ Task 13:
 https://github.com/sahibhussain8239/expressBookReviews/blob/main/final_project/router/general.js
 
 Task 14:
+theia@theia-sahibh8239:/home/project/expressBookReviews
+/final_project$ curl -s https://api.github.com/repos/sahibhussain8239/expressBookReviews | jq '.parent.full_name'
+"ibm-developer-skills-network/expressBookReviews"

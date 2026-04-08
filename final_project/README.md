@@ -90,15 +90,28 @@ theia@theia-sahibh8239:/home/project$ curl localhost:500/review/4
 {}
 
 Task 6: 
+theia@theia-sahibh8239:/home/project$ curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+{"message":"User successfully registered. Now you can login"}
 
+Task 7:
+theia@theia-sahibh8239:/home/project$ curl -X POST http://localhost:5000/customer/login \
+-H "Content-Type: application/json" \
+-d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+{"message":"User successfully logged in"}
 
-Task 7: 
-
-Task 8: 
+Task 8:
+theia@theia-sahibh8239:/home/project$ curl -c cookies.txt -X POST http://localhost:5000/customer/login \
+-H "Content-Type: application/json" \
+-d "{\"username\":\"testuser\",\"password\":\"testpass\"}"
+{"message":"User successfully logged icurl -b cookies.txt -X PUT "http://localhost:5000/customer/auth/review/1?review=This_book_is_absolutely_amazing"
+{"message":"Review successfully added"}
 
 Task 9:
+theia@theia-sahibh8239:/home/project$ curl -b cookies.txt -X DELETE http://localhost:5000/customer/auth/review/1
+{"message":"Review successfully deleted"}
 
-Task 10: 
+Task 10:
+
 
 Task 11: 
 

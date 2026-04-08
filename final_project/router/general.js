@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 let books = require("./booksdb.js");
 let isValid = require("./auth_users.js").isValid;
 let users = require("./auth_users.js").users;
@@ -64,7 +65,7 @@ public_users.get('/books', async function (req, res) {
   // Task 10: Add the code for getting the list of books available in the shop (done in Task 1) using Promise callbacks or async-await with Axios.Please ensure that the general.js file has the code for getting the list of books available in the shop using Promise callbacks or async-await with Axios is covered. 
   try {
     const response = await axios.get('http://localhost:5000/');
-    res.send(response.data);
+    res.status(200).send(JSON.stringify(response.data, null, 4));
   } catch (error) {
     res.status(500).json({ message: "Error fetching book list" });
   }
@@ -76,7 +77,7 @@ public_users.get('/books/isbn/:isbn', async function (req, res) {
   const isbn = req.params.isbn;
   try {
     const response = await axios.get(`http://localhost:5000/isbn/${isbn}`);
-    res.send(response.data);
+    res.status(200).send(JSON.stringify(response.data, null, 4));
   } catch (error) {
     res.status(500).json({ message: "Error fetching book details" });
   }
@@ -100,7 +101,7 @@ public_users.get('/books/title/:title', async function (req, res) {
   const title = req.params.title;
   try {
     const response = await axios.get(`http://localhost:5000/title/${title}`);
-    res.send(response.data);
+    res.status(200).send(JSON.stringify(response.data, null, 4));
   } catch (error) {
     res.status(500).json({ message: "Error fetching book details" });
   }
